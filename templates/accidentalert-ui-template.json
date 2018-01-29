@@ -62,7 +62,7 @@
                "source": {
                   "type": "Git",
                   "git": {
-                     "uri": "https://github.com/hguerrero/techsparks.git",
+                     "uri": "https://github.com/weimeilin79/techsparkpoc.git",
                      "ref": "master"
                   },
                   "contextDir":"/projects/accidentalert-ui"
