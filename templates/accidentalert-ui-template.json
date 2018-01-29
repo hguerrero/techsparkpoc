@@ -41,7 +41,7 @@
            "required": true
         },
         {
-            "description": "Github trigger secret",
+            "description": "Generic trigger secret",
             "name": "GENERIC_TRIGGER_SECRET",
             "from": "[a-zA-Z0-9]{8}",
             "generate": "expression",
