@@ -1,4 +1,4 @@
-# README
+# Shadowman Insurance Accident Alert Web Application
 
 Red Hat Insurance Accident Alert Web Application is an HTML application secured with Red Hat Single Sign On (RH-SSO) that allows authorized entities to report accidents.
 
