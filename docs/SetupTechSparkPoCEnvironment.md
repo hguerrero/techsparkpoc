@@ -10,15 +10,15 @@ oc login -u YOUR_USER_ID
 oc new-project techspark_YOUR_USER_ID --display-name="Tech Spark PoC" --description="Tech Spark PoC from YOUR_TEAM_NAME - Power by Red Hat Fuse"
 ```
 
-Setup existing Red Dog application
+Setup existing Shadowman Insurance application
 
 ```  
 oc new-app -f amq63-basic.json --param=MQ_USERNAME=admin --param=MQ_PASSWORD=admin
 oc new-app --template=amq63-basic --param=MQ_USERNAME=admin --param=MQ_PASSWORD=admin 
 
-oc create -f soap.yml
+oc create -f soap-template.yml
 oc new-app myclaimdemo
-oc create -f batch.yml
+oc create -f batch-template.yml
 oc new-app mypartneragents
 
 ```
@@ -49,4 +49,4 @@ Sample Data:
 ```
 
 This is what your project will look like after setup. Good Luck and Have FUN!!
-![PoC Environment](pic/setupenv.png)
+![PoC Environment](images/setupenv.png)
