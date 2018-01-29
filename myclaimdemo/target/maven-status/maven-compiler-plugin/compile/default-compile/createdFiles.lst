@@ -1,0 +1,5 @@
+org/redhat/demo/data/ClaimInput.class
+org/redhat/demo/ClaimProcessor.class
+org/redhat/demo/data/ClaimStatus.class
+org/redhat/demo/ClaimService.class
+org/redhat/demo/data/ClaimOutput.class

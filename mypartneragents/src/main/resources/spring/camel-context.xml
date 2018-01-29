@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <!-- Define a traditional camel context here -->
+    <bean class="org.redhat.demo.MockDataGenarator" id="mockDataGenarator"/>
+    <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+        <route id="policedatagenerator">
+            <from id="police-data-generator" uri="timer:foo?repeatCount=1"/>
+            <bean id="_bean1" method="generateAllData" ref="mockDataGenarator"/>
+            <marshal id="_unmarshal1">
+                <json library="Jackson"/>
+            </marshal>
+            <log id="_log1" message="${body}"/>
+            <to id="_to1" uri="amq:queue:batch"/>
+        </route>
+    </camelContext>
+</beans>

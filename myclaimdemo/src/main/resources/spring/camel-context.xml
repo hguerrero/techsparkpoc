@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xmlns:cxf="http://camel.apache.org/schema/cxf"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd             http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd      http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf-spring.xsd">
+    <cxf:cxfEndpoint address="/claim" id="claimEndpoint" serviceClass="org.redhat.demo.ClaimService"/>
+    <bean class="org.redhat.demo.ClaimProcessor" id="claimProcessor"/>
+    <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+        <route id="cxfRoute">
+            <from id="_from1" uri="cxf:bean:claimEndpoint"/>
+            <log id="_log1" message="${header.operationName}"/>
+            <recipientList id="_recipientList1">
+                <simple>direct:${header.operationName}</simple>
+            </recipientList>
+        </route>
+        <route id="applyRoute">
+            <from id="_from2" uri="direct:apply"/>
+            <bean id="_bean1" method="process" ref="claimProcessor"/>
+        </route>
+       
+    </camelContext>
+</beans>

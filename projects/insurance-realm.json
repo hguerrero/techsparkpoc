@@ -1,0 +1,49 @@
+{
+  "realm" : "insurance",
+  "accessTokenLifespan" : 300,
+  "accessCodeLifespan" : 60,
+  "accessCodeLifespanUserAction" : 300,
+  "ssoSessionIdleTimeout" : 1800,
+  "ssoSessionMaxLifespan" : 36000,
+  "sslRequired" : "external",
+  "registrationAllowed" : false,
+  "enabled": true,
+  "displayName" : "Red Hat Insurance",
+  "requiredCredentials" : [ "password" ],
+  "users" : [ {
+    "username" : "statepolice",
+    "enabled" : true,
+    "email" : "statepolice@openshift.opentlc.com",
+    "credentials" : [ {
+      "type" : "password",
+      "value" : "password"
+    } ],
+    "realmRoles" : [ "policedept" ],
+    "clientRoles" : {
+      "account" : [ "manage-account", "view-profile" ],
+      "accidentalert-ui" : [ "policedept" ]
+    }
+  } ],
+  "roles" : {
+    "realm" : [ {
+      "name" : "policedept",
+      "description" : "Law Enforcement Role"
+      } ]
+  },
+  "scopeMappings": [ {
+    "client": "accidentalert-ui",
+    "roles": ["policedept"]
+  } ],
+  "clients" : [ {
+    "clientId" : "accidentalert-ui",
+    "enabled" : true,
+    "publicClient" : true,
+    "name" : "Accident Report",
+    "description" : "Red Hat Insurance Accident Report Web App",
+    "surrogateAuthRequired" : false,
+    "clientAuthenticatorType" : "client-secret",
+    "secret" : "01039612-a4ec-4430-821a-e750e7b0e3ee",
+    "redirectUris" : [ "http://localhost:3000/*" ],
+    "webOrigins" : [ "http://localhost:3000" ]
+  } ]
+}
