@@ -7,22 +7,32 @@ Create your own project in the sandbox
 
 ```
 oc login -u YOUR_USER_ID
-oc new-project techspark_YOUR_USER_ID --display-name="Tech Spark PoC" --description="Tech Spark PoC from YOUR_TEAM_NAME - Power by Red Hat Fuse"
+oc new-project techspark-YOUR_USER_ID --display-name="Tech Spark PoC" --description="Tech Spark PoC from YOUR_TEAM_NAME - Power by Red Hat"
 ```
 
-Setup existing Shadowman Insurance application
+Setup existing Shadowman Insurance application using the provided [templates](../templates).
 
-```  
-oc new-app -f amq63-basic.json --param=MQ_USERNAME=admin --param=MQ_PASSWORD=admin
-oc new-app --template=amq63-basic --param=MQ_USERNAME=admin --param=MQ_PASSWORD=admin 
+* Create the broker from template
 
-oc create -f soap-template.yml
-oc new-app myclaimdemo
-oc create -f batch-template.yml
-oc new-app mypartneragents
+    ```  
+    oc new-app -f amq63-basic.json --param=MQ_USERNAME=admin --param=MQ_PASSWORD=admin
+    ```
 
-```
+    if the template is already available run instead
 
+    ```
+    oc new-app --template=amq63-basic --param=MQ_USERNAME=admin --param=MQ_PASSWORD=admin 
+    ```
+
+* Create the rest of the services.
+
+    ```
+    oc create -f soap-template.yml
+    oc new-app myclaimdemo
+    oc create -f batch-template.yml
+    oc new-app mypartneragents
+
+    ```
 
 Here you will be able to test the SOAP application by accessing the WSDL
 
@@ -49,4 +59,5 @@ Sample Data:
 ```
 
 This is what your project will look like after setup. Good Luck and Have FUN!!
+
 ![PoC Environment](images/setupenv.png)
