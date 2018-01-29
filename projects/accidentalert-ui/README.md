@@ -15,7 +15,7 @@ Template is configured with the following basic parameters:
 
 ## Installation
 
-To make installation easier, we provide an openshift template to install the web application in user (e.g. "myproject") project/namespace. Follow these steps to get a running instance of the accident alert web application:
+To make installation easier, we provide an [openshift template](../../templates/accidentalert-ui-template.json) to install the web application in user (e.g. "myproject") project/namespace. Follow these steps to get a running instance of the accident alert web application:
 
 1. Install Openshift template
 
