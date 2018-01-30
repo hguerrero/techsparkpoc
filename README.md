@@ -39,3 +39,20 @@ For this PoC, you will need to show Shadowman Insurance Corp
 ![accident center](docs/images/techspark.png)
 
 Shadowman Insurance share with you the [instructions](docs/SetupTechSparkPoCEnvironment.md) to setup their current applications in the new environment.
+
+
+### API Securty
+
+Shadowman Insurance shared the scope of work (SOW) for the PoC with the internal team and the CSO (Chief Security Officer) requested that the newly created services should be compliant with the corporate security policy. 
+
+To be compliant, you will need to secure the services you created using, at least, a basic authentication scheme. They currently have an application using Red Hat Single Sign On to secure the Accident Alert Reporting Portal. You will need to integrate the REST service created with this portal using the secured service instead of the old legacy endpoint.
+
+Shadowman Insurance provided you with a [realm template](templates/insurance-realm.json) you can use to mock up their security setup.
+
+To accomplish this step, you will need to add to your PoC environment:
+
+- Install Red Hat Single Sign On and configure the provided realm.
+- Install an on-premise deployment of Red Hat 3scale API Management.
+- Define and expose the REST API for accident center to receive single accident report using OpenID Connect.
+- Define and expose the batch accident reports service using API Key.
+- Define and expose the existing SOAP Web Service as a SOAP endpoint using API Key.
