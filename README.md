@@ -40,7 +40,8 @@ For this PoC, you will need to show Shadowman Insurance Corp
 
 Shadowman Insurance share with you the [instructions](docs/SetupTechSparkPoCEnvironment.md) to setup their current applications in the new environment.
 
-### API Securty
+API Security
+------------
 
 Shadowman Insurance shared the scope of work (SOW) for the PoC with the internal team and the CSO (Chief Security Officer) requested that the newly created services should be compliant with the corporate security policy. 
 
